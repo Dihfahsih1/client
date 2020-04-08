@@ -1,5 +1,5 @@
 import React from 'react';
-Const Join = () =>{
+const Join = () =>{
   return (
     <h1>Join</h1>
   )

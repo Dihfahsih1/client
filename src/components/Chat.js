@@ -1,5 +1,5 @@
 import React from 'react';
-Const Chat = () =>{
+const Chat = () =>{
   return (
     <h1>Chat</h1>
   )
