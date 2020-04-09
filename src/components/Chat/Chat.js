@@ -1,11 +1,13 @@
 import React, {useState, useEffect} from 'react';
 import queryString from 'query-string';
 import io from 'socket.io-client';
-
+import './chat.css';
 let socket;
 const Chat = ({ location}) =>{
   const [name, setName] = useState('');
   const [room, setRoom] = useState('');
+  const [message, setMessage] = useState('');
+  const [messages, setMessages] = useState([]);
   const ENDPOINT = 'localhost:5000';
   //start of user effect hook
   useEffect(() =>{
@@ -19,13 +21,34 @@ const Chat = ({ location}) =>{
     });
 
     return () =>{
-      socket.emit('disconnect'):
+      socket.emit('disconnect');
       socket.off();
     }
 
   }, [ENDPOINT, location.search]); //end of usereffect hook
+  useEffect(() => {
+    socket.on('message',(message) =>{
+      setMessages([...messages, message]);
+
+    })
+  },[messages]);
+  const sendMessage = (event) =>{
+    event.preventDefault();
+    if(message){
+      socket.emit('sendMessage', message, () => setMessage(''));
+    }
+  }
+  console.log(message, messages);
   return (
-    <h1>Chat</h1>
+    <div className="outerContainer">
+      <div className="container">
+        <InfoBar />
+        // <input
+        // value = {message}
+        // onChange={(event) => setMessage(event.target.value)}
+        // onKeyPress={event => event.key === 'Enter' ? sendMessage(event): null} />
+      </div>
+    </div>
   )
 }
 
