@@ -15,9 +15,13 @@ const Chat = ({ location}) =>{
     setName(name);
     setRoom(room);
 
-    socket.emit('Join', {name, room}, ({ error }) =>{
-      alert(error);
+    socket.emit('Join', {name, room}, () =>{
     });
+
+    return () =>{
+      socket.emit('disconnect'):
+      socket.off();
+    }
 
   }, [ENDPOINT, location.search]); //end of usereffect hook
   return (
