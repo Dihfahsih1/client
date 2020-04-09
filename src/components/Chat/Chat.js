@@ -7,6 +7,7 @@ const Chat = ({ location}) =>{
   const [name, setName] = useState('');
   const [room, setRoom] = useState('');
   const ENDPOINT = 'localhost:5000';
+  //start of user effect hook
   useEffect(() =>{
     const {name, room} = queryString.parse(location.search);
     socket = io(ENDPOINT);
@@ -14,7 +15,7 @@ const Chat = ({ location}) =>{
     setName(name);
     setRoom(room);
     console.log(socket);
-  },[ENDPOINT, location.search]);
+  },[ENDPOINT, location.search]); //end of usereffect hook
   return (
     <h1>Chat</h1>
   )
