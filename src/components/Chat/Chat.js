@@ -14,7 +14,8 @@ const Chat = ({ location}) =>{
 
     setName(name);
     setRoom(room);
-    console.log(socket);
+
+    socket.emit('Join'{name, room});
   },[ENDPOINT, location.search]); //end of usereffect hook
   return (
     <h1>Chat</h1>
