@@ -1,6 +1,6 @@
 import React, { useSatet } from 'react';
 import { Link } from 'react-router-dom';
-
+import './Join.css';
 const Join = () =>{
   //using hooks in class
   const [name, setName] = useState('');
