@@ -4,6 +4,7 @@ import io from 'socket.io-client';
 import './Chat.css';
 import InfoBar from '../InfoBar/InfoBar';
 import Input from '../Input/Input';
+import Input from '../Messages/Messages';
 let socket;
 const Chat = ({ location}) =>{
   const [name, setName] = useState('');
