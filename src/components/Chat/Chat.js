@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import queryString from 'query-string';
 import io from 'socket.io-client';
 import './chat.css';
+import InfoBar from './InfoBar/InfoBar';
 let socket;
 const Chat = ({ location}) =>{
   const [name, setName] = useState('');
