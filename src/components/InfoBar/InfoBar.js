@@ -1,11 +1,11 @@
-import React form 'react';
+import React from 'react';
 import './InfoBar.css';
-import closeIcon from '../../icons/closeIcon';
-import onlineIcon from '../../icons/onlineIcon';
+import closeIcon from '../../icons/closeIcon.png';
+import onlineIcon from '../../icons/onlineIcon.png';
 const InfoBar = ({room }) =>(
-  <div className="InfoBar">
+  <div className="infoBar">
     <div className="leftInnerContainer">
-    <img className="onlineIcon" src="{onlineIcon}" alt="online Image"/>
+    <img className="onlineIcon" src={onlineIcon} alt="online Image"/>
       <h3>{room}</h3>
 
     </div>
